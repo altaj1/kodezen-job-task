@@ -4,6 +4,8 @@ import arrayMove from 'array-move';
 import './App.css';
 import { SortableItem } from './SortableItem';
 import { SortableList } from './SortableList';
+import { NewGroup } from './NewGroup';
+
 const initialColors = [
   { id: 1, title: 'Primary', color: '#FF0000' },
   { id: 2, title: 'Secondary', color: '#00FF00' },
@@ -14,7 +16,7 @@ function App() {
   const [showMenu, setShowMenu] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [currentItem, setCurrentItem] = useState(null);
- 
+ const [newGroup, setNewGroup]= useState([1,])
   const onSortEnd = ({ oldIndex, newIndex }) => {
     setColors(arrayMove(colors, oldIndex, newIndex));
   };
@@ -41,7 +43,10 @@ function App() {
     setIsDrawerOpen(false);
     setCurrentItem(null);
   };
+ const handelNewGroup = ()=>[
 
+  setNewGroup([...newGroup, 1])
+ ]
   return (
     <div className="kzui-app">
       <header className="kzui-header">Color List</header>
@@ -59,7 +64,28 @@ function App() {
         showMenu={showMenu}
         setShowMenu={setShowMenu}
       />
-        <button className="kzui-add-button" onClick={addItem}>Add</button>
+      <hr />
+      <div>
+      <button onClick={handelNewGroup}>New Group ...</button>
+      {
+  newGroup.map((group, index) => (
+    <NewGroup
+      key={index} // Use the index as the key since you are using a simple array of numbers
+      items={colors}
+      colors={colors}
+      setColors={setColors}
+      onSortEnd={onSortEnd}
+      onEdit={editItem}
+      onDelete={deleteItem}
+      onDuplicate={duplicateItem}
+      showMenu={showMenu}
+      setShowMenu={setShowMenu}
+    />
+  ))
+}
+
+      </div>
+       
     </div>
   );
 }

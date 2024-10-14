@@ -1,4 +1,3 @@
-
 import { AiOutlineDelete } from "react-icons/ai";
 import { FaPencil } from "react-icons/fa6";
 import { SortableElement } from "react-sortable-hoc";
@@ -7,19 +6,52 @@ import { MdDragIndicator } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
 import { useState } from "react";
 import { HiOutlineDocumentDuplicate } from "react-icons/hi";
+import { ColorPicker, useColor } from "react-color-palette";
+import "react-color-palette/css";
 export const SortableItem = SortableElement(
-  ({ item, onEdit, onDelete, onDuplicate, showMenu, setShowMenu, menuId, colors, setColors }) => {
+  ({
+    item,
+    onEdit,
+    onDelete,
+    onDuplicate,
+    showMenu,
+    setShowMenu,
+    menuId,
+    items,
+    colors,
+    setColors,
+  }) => {
     const [hoveredItemId, setHoveredItemId] = useState(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [editColor, setEditColor] = useState({})
+    const [editColor, setEditColor] = useState({});
+    const [color, setColor] = useColor("rgb(86 30 203)");
 
     const toggleSidebar = (itm) => {
-        setEditColor(itm)
+      setEditColor(itm);
       setIsSidebarOpen(!isSidebarOpen);
     };
-    const handelDuplicate = (it)=>{
-        setColors([...colors, it])
-    }
+    const handelDuplicate = (it) => {
+      setColors([...colors, it]);
+    };
+    const handelUpdate = (e) => {
+      e.preventDefault();
+      const title = e.target.title.value;
+      const id = item.id;
+      const newColor = color.hex;
+
+      const updatedColors = items.map((item) =>
+        item.id === id ? { ...item, title, color: newColor } : item
+      );
+      console.log(
+        title,
+        color,
+        id,
+        "this is consol update functon",
+        updatedColors
+      );
+      setColors(updatedColors);
+    };
+    // console.log(color)
     return (
       <>
         <tr>
@@ -57,18 +89,21 @@ export const SortableItem = SortableElement(
               >
                 <span>{item.color}</span>
                 <span style={{ position: "relative" }}>
-                  <BsThreeDots
-                    onMouseEnter={() => setHoveredItemId(item.id)}
-                   
-                  />
+                  <BsThreeDots onMouseEnter={() => setHoveredItemId(item.id)} />
                   {hoveredItemId === item.id && (
-                    <span className="tooltip"
-                    
-                    onMouseLeave={() => setHoveredItemId(null)}
+                    <span
+                      className="tooltip"
+                      onMouseLeave={() => setHoveredItemId(null)}
                     >
-                      <button onClick={()=>toggleSidebar(item)}><FaPencil /> Edit</button>
-                      <button onClick={()=>handelDuplicate(item)}><HiOutlineDocumentDuplicate /> Duplicate</button>
-                      <button onClick={() => onDelete(item.id)}><AiOutlineDelete /> Delete</button>
+                      <button onClick={() => toggleSidebar(item)}>
+                        <FaPencil /> Edit
+                      </button>
+                      <button onClick={() => handelDuplicate(item)}>
+                        <HiOutlineDocumentDuplicate /> Duplicate
+                      </button>
+                      <button onClick={() => onDelete(item.id)}>
+                        <AiOutlineDelete /> Delete
+                      </button>
                     </span>
                   )}
                 </span>
@@ -81,32 +116,110 @@ export const SortableItem = SortableElement(
         {isSidebarOpen && (
           <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
             <div className="sidebar-content">
-              
               <div>
-              <h2>Edit Color</h2>
-              
-              <form action="">
-                <label htmlFor="" style={{
-                    display:"flex",
-                    'flex-direction': "column",
-                    textAlign:"start"
-                }}>
-                    Name 
-                    <input 
+                <h2>Edit Color</h2>
+
+                <form action="" onSubmit={handelUpdate}>
+                  <label
+                    htmlFor=""
                     style={{
-                        marginTop:"5px",
-                        padding:"10px",
-                        borderRadius:"6px"
+                      display: "flex",
+                      "flex-direction": "column",
+                      textAlign: "start",
                     }}
-                    type="text"  defaultValue={editColor.title} />
-                </label>
-               
-              </form>
+                  >
+                    Name
+                    <input
+                      name="title"
+                      style={{
+                        marginTop: "5px",
+                        padding: "10px",
+                        borderRadius: "6px",
+                      }}
+                      type="text"
+                      defaultValue={editColor.title}
+                    />
+                  </label>
+                  <hr />
+                  <div>
+                    <label
+                      htmlFor=""
+                      style={{
+                        display: "flex",
+                        "flex-direction": "column",
+                        textAlign: "start",
+                        marginTop: "20px",
+                      }}
+                    >
+                      Value
+                    </label>
+                    <div>
+                      <div
+                      style={{
+                        display:"flex",
+                        justifyContent:"space-between",
+                        alignItems:"center"
+                    }}
+                      >
+                        <h3
+                          style={{
+                            textAlign: "start",
+                          }}
+                        >
+                          Color
+                        </h3>
+                        <div style={{
+                            display:"flex",
+                            justifyContent:"center",
+                            alignItems:"center",
+                            gap:"8px"
+                        }}>
+                         
+                            <div
+                              style={{
+                                height: "16px",
+                                width: "16px",
+                                backgroundColor: color.hex, // Use the variable directly
+                              }}
+                            ></div>
+                            <div>{color.hex}</div>
+                          
+                        </div>
+                      </div>
+                      <ColorPicker color={color} onChange={setColor} />;
+                    </div>
+                  </div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      gap: "5px",
+                    }}
+                  >
+                    <button onClick={toggleSidebar} className="close-sidebar">
+                      Cancel
+                    </button>
+                    <input
+                      type="submit"
+                      value={"Save"}
+                      style={{
+                        "margin-top": "20px",
+                        "background-color": "#000000",
+
+                        /* border: none; */
+                        color: " white",
+                        padding: "12px",
+                        paddingRight: "30px",
+                        paddingLeft: "30px",
+                        cursor: "pointer",
+                        borderRadius: "12px",
+                      }}
+                    />
+                  </div>
+                </form>
               </div>
               {/* Place your editing form or content here */}
-              <button onClick={toggleSidebar} className="close-sidebar">
-                Close
-              </button>
             </div>
           </div>
         )}

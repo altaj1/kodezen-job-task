@@ -63,6 +63,7 @@ export const SortableList = SortableContainer(
                 setShowMenu={setShowMenu}
                 colors = {colors}
         setColors={setColors}
+        items={items}
               />
             ))}
           </tbody>

@@ -1,14 +1,14 @@
 .kzui-app {
-  display: flex;
-  width: 100cqw;
-  height: 100vh;
-  /* background-color: bisque; */
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;    
-  margin: 0 auto;          
-           
+  display: flex;               /* Enable flexbox layout */
+  flex-direction: column;      /* Arrange items in a column */
+  justify-content: center;     /* Center items vertically */
+  align-items: center;         /* Center items horizontally */
+  height: auto;              /* Full height of the viewport */
+  margin: auto; 
+ 
+  width: ;              /* Center the container itself */
 }
+
 .kzui-system {
   border: 1px solid #90cdf4;  /* Corrected: 5px border with a solid style and blue color */
   padding: 10px; 
@@ -162,15 +162,17 @@
 
 .close-sidebar {
   margin-top: 20px;
-  background-color: #ff5e5e;
-  border: none;
-  color: white;
+  background-color: #FFFFFF;
+  ;
+  /* border: none; */
+  /* color: white; */
   padding: 10px 20px;
   cursor: pointer;
 }
 
 .close-sidebar:hover {
   background-color: #ff4444;
+  color: #FFFFFF;
 }
 
 /* Overlay */
