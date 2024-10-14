@@ -1,0 +1,242 @@
+.kzui-app {
+  display: flex;
+  width: 100cqw;
+  height: 100vh;
+  /* background-color: bisque; */
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;    
+  margin: 0 auto;          
+           
+}
+.kzui-system {
+  border: 1px solid #90cdf4;  /* Corrected: 5px border with a solid style and blue color */
+  padding: 10px; 
+  height: 816px;
+  width: 720px;
+
+  border-radius: 8px;       
+}
+.kzui-header {
+  text-align: center;
+  margin-bottom:20px;
+}
+.kzui-heading {
+  width: 300%;             /* Adjust this to fit your needs */
+  font-size: 18px;
+  font-weight: 500;         /* Corrected: 'font-size' to define the text size */
+  line-height: 27px; 
+  padding: 16px;      /* Line height of the text */
+}
+.kzuil-tab-list {
+  display: flex;
+
+}
+.kzui-name-value {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+}
+.kzui-search {
+  padding: 5px;
+}
+
+
+
+
+
+/* tabble */
+
+.kzui-custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+.kzui-custom-table thead tr {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.kzui-custom-table th,
+.kzui-custom-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.kzui-custom-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* .kzui-custom-table tbody tr:hover {
+  background-color: #f1f1f1;
+} */
+.kzui-list-content {
+  height: 15px;
+  width: 15px;
+  
+}
+.kzui-value{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 6px;
+}
+/* .kzui-drag {
+  visibility: hidden; 
+  background-color: brown;
+} */
+
+.kzui-drag:hover {
+  visibility: visible;
+  z-index: 2; 
+  background-color: #333;
+}
+
+/* tool tip */
+
+.tooltip {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.tooltip button {
+  display: block;
+  background: none;
+  border: none;
+  color: white;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.tooltip button:hover {
+  text-decoration: underline;
+}
+
+
+
+/* App container */
+.app-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Initially off-screen to the right */
+  width: 300px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  transition: right 0.3s ease; /* Smooth slide-in transition */
+  z-index: 1000;
+}
+
+.sidebar.open {
+  right: 0; /* Sidebar slides in when open */
+}
+
+.sidebar-content {
+  height: 80vh;
+  display: flex;
+  flex-direction: column; /* Corrected this line */
+  justify-content: space-between;
+  padding: 20px;
+  text-align: center;
+}
+
+.close-sidebar {
+  margin-top: 20px;
+  background-color: #ff5e5e;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.close-sidebar:hover {
+  background-color: #ff4444;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay when sidebar is open */
+  z-index: 500;
+}
+
+
+
+/* .kzui-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.kzui-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.kzui-list__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.kzui-list__item:hover {
+  background-color: #e0e0e0;
+}
+
+.kzui-list__content {
+  display: flex;
+  align-items: center;
+}
+.kzui-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kzui-menu__option {
+  cursor: pointer;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.kzui-menu__option:hover {
+  background-color: #e0e0e0;
+} */
