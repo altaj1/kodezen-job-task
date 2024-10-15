@@ -3,7 +3,7 @@ import { SortableItem } from "./SortableItem";
 import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import Sidebar from "./Sidebar";
-export const SortableList = SortableContainer(
+export const  SortableList = SortableContainer(
   ({ items, onEdit, onDelete, onDuplicate, showMenu, setShowMenu, setColors, colors  }) => {
     const [tabIndex, setTabIndex] = useState(0);
     const tabList = ["Color", "Typography", "Shadow"];
@@ -69,7 +69,11 @@ export const SortableList = SortableContainer(
           </tbody>
         </table>
         <div>
-            <button onClick={handelAddColor}><FiPlus /> Add Color</button>
+            <button 
+            style={{ outline: "none",
+              border:"none"
+             }}
+            onClick={handelAddColor}><FiPlus /> Add Color</button>
         </div>
       </div>
     );

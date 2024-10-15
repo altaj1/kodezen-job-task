@@ -42,13 +42,6 @@ export const SortableItem = SortableElement(
       const updatedColors = items.map((item) =>
         item.id === id ? { ...item, title, color: newColor } : item
       );
-      console.log(
-        title,
-        color,
-        id,
-        "this is consol update functon",
-        updatedColors
-      );
       setColors(updatedColors);
     };
     // console.log(color)

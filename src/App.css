@@ -1,18 +1,18 @@
 .kzui-app {
-  display: flex;               /* Enable flexbox layout */
-  flex-direction: column;      /* Arrange items in a column */
-  justify-content: center;     /* Center items vertically */
-  align-items: center;         /* Center items horizontally */
-  height: auto;              /* Full height of the viewport */
+  display: flex;            
+  flex-direction: column;   
+  justify-content: center; 
+  align-items: center;      
+  height: auto;             
   margin: auto; 
  
-  width: ;              /* Center the container itself */
+          
 }
 
 .kzui-system {
-  border: 1px solid #90cdf4;  /* Corrected: 5px border with a solid style and blue color */
+  border: 1px solid #90cdf4;  
   padding: 10px; 
-  height: 816px;
+  
   width: 720px;
 
   border-radius: 8px;       
@@ -22,11 +22,11 @@
   margin-bottom:20px;
 }
 .kzui-heading {
-  width: 300%;             /* Adjust this to fit your needs */
+
   font-size: 18px;
-  font-weight: 500;         /* Corrected: 'font-size' to define the text size */
+  font-weight: 500;        
   line-height: 27px; 
-  padding: 16px;      /* Line height of the text */
+  padding: 16px;     
 }
 .kzuil-tab-list {
   display: flex;
@@ -41,11 +41,6 @@
 .kzui-search {
   padding: 5px;
 }
-
-
-
-
-
 /* tabble */
 
 .kzui-custom-table {
@@ -71,9 +66,9 @@
   background-color: #f9f9f9;
 }
 
-/* .kzui-custom-table tbody tr:hover {
+.kzui-custom-table tbody tr:hover {
   background-color: #f1f1f1;
-} */
+}
 .kzui-list-content {
   height: 15px;
   width: 15px;
@@ -85,10 +80,6 @@
   align-items: center;
   gap: 6px;
 }
-/* .kzui-drag {
-  visibility: hidden; 
-  background-color: brown;
-} */
 
 .kzui-drag:hover {
   visibility: visible;
@@ -103,8 +94,9 @@
   position: absolute;
   top: 20px;
   right: 0;
-  background-color: #333;
-  color: white;
+  color: black;
+  background-color: white;
+  
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -116,7 +108,7 @@
   display: block;
   background: none;
   border: none;
-  color: white;
+  color: black;
   margin: 5px 0;
   cursor: pointer;
 }
@@ -138,23 +130,23 @@
 .sidebar {
   position: fixed;
   top: 0;
-  right: -300px; /* Initially off-screen to the right */
+  right: -300px; 
   width: 300px;
   height: 100%;
-  background-color: #333;
-  color: white;
-  transition: right 0.3s ease; /* Smooth slide-in transition */
+  background-color: white;
+  color: black;
+  transition: right 0.3s ease; 
   z-index: 1000;
 }
 
 .sidebar.open {
-  right: 0; /* Sidebar slides in when open */
+  right: 0;
 }
 
 .sidebar-content {
   height: 80vh;
   display: flex;
-  flex-direction: column; /* Corrected this line */
+  flex-direction: column; 
   justify-content: space-between;
   padding: 20px;
   text-align: center;
@@ -186,59 +178,25 @@
   z-index: 500;
 }
 
+/* modal */
 
-
-/* .kzui-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.kzui-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.kzui-list__item {
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: space-between;
-  padding: 12px;
-  margin-bottom: 8px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.kzui-list__item:hover {
-  background-color: #e0e0e0;
-}
-
-.kzui-list__content {
-  display: flex;
+  justify-content: center;
   align-items: center;
 }
-.kzui-menu {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+
+.modal-content {
+  background-color: rgb(32, 26, 26);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.kzui-menu__option {
-  cursor: pointer;
-  padding: 8px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.kzui-menu__option:hover {
-  background-color: #e0e0e0;
-} */
