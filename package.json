@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "array-move": "^3.0.1",
+    "firebase": "^10.14.1",
     "react": "^18.3.1",
     "react-color-palette": "^7.3.0",
     "react-dom": "^18.3.1",

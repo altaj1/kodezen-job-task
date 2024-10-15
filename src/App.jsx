@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { SortableContainer } from "react-sortable-hoc";
+import  { useState } from "react";
+
 import arrayMove from "array-move";
 import "./App.css";
-import { SortableItem } from "./SortableItem";
 import { SortableList } from "./SortableList";
 import { NewGroup } from "./NewGroup";
+import Navbar from "./Navbar";
 
 const initialColors = [
   { id: 1, title: "Primary", color: "#FF0000" },
@@ -22,9 +22,6 @@ function App() {
   const onSortEnd = ({ oldIndex, newIndex }) => {
     setColors(arrayMove(colors, oldIndex, newIndex));
   };
-
- 
-
   const editItem = (id) => {
     setCurrentItem(colors.find((item) => item.id === id));
     setIsDrawerOpen(true);
@@ -62,9 +59,10 @@ function App() {
 
 
   return (
-    <div className="kzui-app">
-      <header className="kzui-header">Color List</header>
+ <div>
 
+  <Navbar></Navbar>
+     <div className="kzui-app">
       <SortableList
         items={colors}
         colors={colors}
@@ -105,6 +103,7 @@ function App() {
         ))}
       </div>
     </div>
+ </div>
   );
 }
 
